@@ -13,7 +13,7 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
 
     private EditText principalAmount, interestRate, termInYears;
     private Button calculate, reset, back;
-    private TextView resultSimpleInterest, resultTotalPayment;
+    private TextView resultSimpleInterest, resultTotalPayment, printError;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +27,7 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
         back = (Button) findViewById(R.id.Back);
         resultSimpleInterest = (TextView) findViewById(R.id.SimpleInterestResult);
         resultTotalPayment = (TextView) findViewById(R.id.TotalPaymentResult);
+        printError = (TextView) findViewById(R.id.PrintErrorSI);
 
         calculate.setOnClickListener(this);
         reset.setOnClickListener(this);
@@ -40,11 +41,7 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
             CalculateInterest();
         }
         else if(v == reset){
-            principalAmount.getText().clear();
-            interestRate.getText().clear();
-            termInYears.getText().clear();
-            resultSimpleInterest.setText(null);
-            resultTotalPayment.setText(null);
+            reset();
         }
         else if(v == back){
             Intent ma = new Intent(this, MainActivity.class);
@@ -53,14 +50,31 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
 
     }
 
+    private void reset() {
+        principalAmount.getText().clear();
+        interestRate.getText().clear();
+        termInYears.getText().clear();
+        resultSimpleInterest.setText(null);
+        resultTotalPayment.setText(null);
+        principalAmount.setText(null);
+    }
+
     private void CalculateInterest() {
         int amount = Integer.parseInt(principalAmount.getText().toString());
         Float interest  = Float.parseFloat(interestRate.getText().toString());
         int loanTerm = Integer.parseInt(termInYears.getText().toString());
-        Float DueInterest = amount * loanTerm * interest /100;
-        Float totalPayment = amount + DueInterest;
-        resultSimpleInterest.setText(Float.toString(DueInterest));
-        resultTotalPayment.setText(Float.toString(totalPayment));
+        if(amount == 0 || interest == 0 || loanTerm ==0){
+            reset();
+            principalAmount.setText("Enter all Value");
+        }
+        else{
+            Float DueInterest = amount * loanTerm * interest /100;
+            Float totalPayment = amount + DueInterest;
+            resultSimpleInterest.setText(Float.toString(DueInterest));
+            resultTotalPayment.setText(Float.toString(totalPayment));
+            principalAmount.setText(null);
+        }
+
 
     }
 }
