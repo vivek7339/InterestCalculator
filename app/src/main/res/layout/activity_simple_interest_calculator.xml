@@ -51,7 +51,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/Calculate"
+        android:id="@+id/CalculateForCI"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -62,7 +62,7 @@
         android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBaseline_toBaselineOf="@+id/Reset"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ResetForCI"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
         tools:ignore="HardcodedText" />
@@ -75,7 +75,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <EditText
-        android:id="@+id/TermInYears"
+        android:id="@+id/TermInYearsForCI"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -112,7 +112,7 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/Reset"
+        android:id="@+id/ResetForCI"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -128,7 +128,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TermInYears"
+        app:layout_constraintTop_toBottomOf="@+id/TermInYearsForCI"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -163,7 +163,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Reset" />
+        app:layout_constraintTop_toBottomOf="@+id/ResetForCI" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"

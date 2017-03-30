@@ -21,9 +21,9 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
 
         principalAmount = (EditText) findViewById(R.id.PrincipalAmountInput);
         interestRate = (EditText) findViewById(R.id.IntrestRate);
-        termInYears = (EditText) findViewById(R.id.TermInYears);
-        calculate = (Button) findViewById(R.id.Calculate);
-        reset = (Button) findViewById(R.id.Reset);
+        termInYears = (EditText) findViewById(R.id.TermInYearsForCI);
+        calculate = (Button) findViewById(R.id.CalculateForCI);
+        reset = (Button) findViewById(R.id.ResetForCI);
         back = (Button) findViewById(R.id.Back);
         resultSimpleInterest = (TextView) findViewById(R.id.SimpleInterestResult);
         resultTotalPayment = (TextView) findViewById(R.id.TotalPaymentResult);
@@ -40,8 +40,11 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
             CalculateInterest();
         }
         else if(v == reset){
-            Intent si = new Intent(this, SimpleInterestCalculatorActivity.class);
-            startActivity(si);
+            principalAmount.getText().clear();
+            interestRate.getText().clear();
+            termInYears.getText().clear();
+            resultSimpleInterest.setText(null);
+            resultTotalPayment.setText(null);
         }
         else if(v == back){
             Intent ma = new Intent(this, MainActivity.class);
