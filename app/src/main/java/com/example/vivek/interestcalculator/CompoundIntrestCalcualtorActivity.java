@@ -14,7 +14,7 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
 
     private EditText principalAmount, interestRate, termInYears, noInterestPayments;
     private Button calculate, reset, back;
-    private TextView resultCompoundInterest, resultAccumlatedAmount;
+    private TextView resultCompoundInterest, resultAccumlatedAmount, printError;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
         back = (Button) findViewById(R.id.BackForCI);
         resultCompoundInterest = (TextView) findViewById(R.id.ResultCompoundInterest);
         resultAccumlatedAmount = (TextView) findViewById(R.id.ResultAccumlatedAmount);
+        printError = (TextView) findViewById(R.id.PrintErrorCI);
 
         calculate.setOnClickListener(this);
         reset.setOnClickListener(this);
@@ -42,12 +43,7 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
             CalculateCompoundInterest();
         }
         else if(v == reset){
-            principalAmount.getText().clear();
-            interestRate.getText().clear();
-            termInYears.getText().clear();
-            noInterestPayments.getText().clear();
-            resultCompoundInterest.setText(null);
-            resultAccumlatedAmount.setText(null);
+           reset();
         }
         else if(v == back){
             Intent ma = new Intent(this, MainActivity.class);
@@ -56,16 +52,33 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
 
     }
 
-    private void CalculateCompoundInterest() {
+    private void reset() {
+        principalAmount.getText().clear();
+        interestRate.getText().clear();
+        termInYears.getText().clear();
+        noInterestPayments.getText().clear();
+        resultCompoundInterest.setText(null);
+        resultAccumlatedAmount.setText(null);
+        printError.setText(null);
+    }
 
-        int p = Integer.parseInt(principalAmount.getText().toString());
-        Float r  = Float.parseFloat(interestRate.getText().toString())/100;
-        int t = Integer.parseInt(termInYears.getText().toString());
-        int n = Integer.parseInt(noInterestPayments.getText().toString());
-        Double totalPayment = p * (Math.pow((1+(r/n)),(n * t)));
-        Double compoundInterest = totalPayment - p;
-        resultCompoundInterest.setText(Double.toString(compoundInterest));
-        resultAccumlatedAmount.setText(Double.toString(totalPayment));
+    private void CalculateCompoundInterest() {
+        if(principalAmount.getText().toString().isEmpty() || interestRate.getText().toString().isEmpty() ||  termInYears.getText().toString().isEmpty() || noInterestPayments.getText().toString().isEmpty()){
+            reset();
+            printError.setText("Enter all Value");
+        }
+        else{
+            int p = Integer.parseInt(principalAmount.getText().toString());
+            Float r  = Float.parseFloat(interestRate.getText().toString())/100;
+            int t = Integer.parseInt(termInYears.getText().toString());
+            int n = Integer.parseInt(noInterestPayments.getText().toString());
+            Double totalPayment = p * (Math.pow((1+(r/n)),(n * t)));
+            Double compoundInterest = totalPayment - p;
+            resultCompoundInterest.setText(Double.toString(compoundInterest));
+            resultAccumlatedAmount.setText(Double.toString(totalPayment));
+            printError.setText(null);
+        }
+
     }
 
 }

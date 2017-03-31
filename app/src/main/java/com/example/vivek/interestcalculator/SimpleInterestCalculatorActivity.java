@@ -56,23 +56,24 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
         termInYears.getText().clear();
         resultSimpleInterest.setText(null);
         resultTotalPayment.setText(null);
-        principalAmount.setText(null);
+        printError.setText(null);
     }
 
     private void CalculateInterest() {
-        int amount = Integer.parseInt(principalAmount.getText().toString());
-        Float interest  = Float.parseFloat(interestRate.getText().toString());
-        int loanTerm = Integer.parseInt(termInYears.getText().toString());
-        if(amount == 0 || interest == 0 || loanTerm ==0){
+
+        if(principalAmount.getText().toString().isEmpty() || interestRate.getText().toString().isEmpty() ||  termInYears.getText().toString().isEmpty()){
             reset();
-            principalAmount.setText("Enter all Value");
+            printError.setText("Enter all Value");
         }
         else{
+            int amount = Integer.parseInt(principalAmount.getText().toString());
+            Float interest  = Float.parseFloat(interestRate.getText().toString());
+            int loanTerm = Integer.parseInt(termInYears.getText().toString());
             Float DueInterest = amount * loanTerm * interest /100;
             Float totalPayment = amount + DueInterest;
             resultSimpleInterest.setText(Float.toString(DueInterest));
             resultTotalPayment.setText(Float.toString(totalPayment));
-            principalAmount.setText(null);
+            printError.setText(null);
         }
 
 
