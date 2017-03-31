@@ -17,12 +17,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SimpleInterestCalculatorActivity"
+        <activity
+            android:name=".SimpleInterestCalculatorActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CompoundIntrestCalcualtorActivity"
+        <activity
+            android:name=".CompoundIntrestCalcualtorActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".EMICalcualtorActivity"
-            android:screenOrientation="portrait" ></activity>
+        <activity
+            android:name=".EMICalcualtorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TestActicity"
+            android:label="@string/title_activity_test_acticity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

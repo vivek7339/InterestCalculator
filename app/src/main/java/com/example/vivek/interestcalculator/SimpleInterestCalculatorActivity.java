@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import java.text.DecimalFormat;
+
 public class SimpleInterestCalculatorActivity extends AppCompatActivity implements OnClickListener {
 
     private EditText principalAmount, interestRate, termInYears;
@@ -66,13 +68,14 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
             printError.setText("Enter all Value");
         }
         else{
+            DecimalFormat df = new DecimalFormat("0.00");
             int amount = Integer.parseInt(principalAmount.getText().toString());
             Float interest  = Float.parseFloat(interestRate.getText().toString());
             int loanTerm = Integer.parseInt(termInYears.getText().toString());
             Float DueInterest = amount * loanTerm * interest /100;
             Float totalPayment = amount + DueInterest;
-            resultSimpleInterest.setText(Float.toString(DueInterest));
-            resultTotalPayment.setText(Float.toString(totalPayment));
+            resultSimpleInterest.setText(df.format(DueInterest));
+            resultTotalPayment.setText(df.format(totalPayment));
             printError.setText(null);
         }
 

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import java.text.DecimalFormat;
+
 public class CompoundIntrestCalcualtorActivity extends AppCompatActivity implements OnClickListener {
 
     private EditText principalAmount, interestRate, termInYears, noInterestPayments;
@@ -68,14 +70,15 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
             printError.setText("Enter all Value");
         }
         else{
+            DecimalFormat df = new DecimalFormat("0.00");
             int p = Integer.parseInt(principalAmount.getText().toString());
             Float r  = Float.parseFloat(interestRate.getText().toString())/100;
             int t = Integer.parseInt(termInYears.getText().toString());
             int n = Integer.parseInt(noInterestPayments.getText().toString());
             Double totalPayment = p * (Math.pow((1+(r/n)),(n * t)));
             Double compoundInterest = totalPayment - p;
-            resultCompoundInterest.setText(Double.toString(compoundInterest));
-            resultAccumlatedAmount.setText(Double.toString(totalPayment));
+            resultCompoundInterest.setText(df.format(compoundInterest));
+            resultAccumlatedAmount.setText(df.format(totalPayment));
             printError.setText(null);
         }
 
