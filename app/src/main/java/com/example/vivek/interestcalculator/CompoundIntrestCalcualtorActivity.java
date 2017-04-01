@@ -2,9 +2,12 @@ package com.example.vivek.interestcalculator;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +21,8 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
     private EditText principalAmount, interestRate, termInYears, noInterestPayments;
     private Button calculate, reset, back;
     private TextView resultCompoundInterest, resultAccumlatedAmount, printError;
+    private Toolbar myToolbar;
+
     static  final  String LOG_TAG = "CICActivity";
     generalfunctions hk = new generalfunctions();
 
@@ -25,6 +30,29 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compound_intrest_calcualtor);
+
+        myToolbar = (Toolbar) findViewById(R.id.CICToolbar);
+        myToolbar.setTitle("Compound Interest Calculator");
+        myToolbar.setTitleTextColor(Color.WHITE);
+        myToolbar.inflateMenu(R.menu.mainmenu);
+        myToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.menuAbout:
+                        Log.v(LOG_TAG,"About Activity Started");
+                        Intent si = new Intent(CompoundIntrestCalcualtorActivity.this, About.class);
+                        startActivity(si);
+                        return true;
+                    case R.id.menuContactUs:
+                        Log.v(LOG_TAG,"Contact Activity Started");
+                        Intent cu = new Intent(CompoundIntrestCalcualtorActivity.this, ContactUs.class);
+                        startActivity(cu);
+                        return true;
+                }
+                return false;
+            }
+        });
 
         generalfunctions hk = new generalfunctions();
         hk.hidekeyboard(this);

@@ -68,14 +68,18 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/ResetForCI"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline2"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.5"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="180dp" />
 
     <EditText
         android:id="@+id/TermInYearsForCI"
@@ -93,7 +97,9 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/IntrestRate"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/Back"
@@ -112,7 +118,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/ResetForCI"
@@ -131,14 +139,15 @@
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TermInYearsForCI"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <TextView
         android:id="@+id/Interest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="0dp"
         android:fontFamily="sans-serif-condensed"
         android:text=" Simple Interest:"
         android:textAlignment="center"
@@ -148,7 +157,8 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/SimpleInterestResult"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline5"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/SimpleInterestResult"
@@ -165,21 +175,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ResetForCI" />
+        app:layout_constraintTop_toBottomOf="@+id/ResetForCI"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="16dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline5"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.42"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="151dp" />
 
     <TextView
         android:id="@+id/TotalPayment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="0dp"
         android:fontFamily="sans-serif-condensed"
         android:text="Total Payment:"
         android:textAlignment="center"
@@ -190,7 +203,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline5"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/TotalPaymentResult"
@@ -207,36 +221,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SimpleInterestResult" />
+        app:layout_constraintTop_toBottomOf="@+id/SimpleInterestResult"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="16dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline3"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="64dp" />
-
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Simple Interest Calculator"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintGuide_begin="70dp" />
 
     <TextView
         android:id="@+id/PrintErrorSI"
@@ -252,6 +246,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/Back" />
+        app:layout_constraintBottom_toTopOf="@+id/Back"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/SimpleInterestToolbar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="-1dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3" />
 
 </android.support.constraint.ConstraintLayout>

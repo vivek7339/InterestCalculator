@@ -1,13 +1,11 @@
 package com.example.vivek.interestcalculator;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private Button emiCalculator;
     private  Toolbar myToolbar;
 
+
     static  final  String LOG_TAG = "MainActivity";
 
     @Override
@@ -29,19 +28,40 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
 
 
-        /*myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        myToolbar = (Toolbar) findViewById(R.id.MainActivityToolbar);
+        myToolbar.setTitle("Interest Calculator");
+        myToolbar.setTitleTextColor(Color.WHITE);
+        myToolbar.inflateMenu(R.menu.mainmenu);
+        myToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.menuAbout:
+                        Log.v(LOG_TAG,"About Activity Started");
+                        Intent si = new Intent(MainActivity.this, About.class);
+                        startActivity(si);
+                        return true;
+                    case R.id.menuContactUs:
+                        Log.v(LOG_TAG,"Contact Activity Started");
+                        Intent cu = new Intent(MainActivity.this, ContactUs.class);
+                        startActivity(cu);
+                        return true;
+                }
+                return false;
+            }
+        });
 
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);*/
 
         simpleInterest = (Button) findViewById(R.id.SimpleInterest);
         compoundInterest = (Button) findViewById(R.id.CompoundInterest);
         emiCalculator = (Button) findViewById(R.id.EMICalculator);
 
+
         simpleInterest.setOnClickListener(this);
         compoundInterest.setOnClickListener(this);
         emiCalculator.setOnClickListener(this);
+
+
 
         Log.v(LOG_TAG,"Activity Created");
     }
@@ -66,6 +86,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent ec = new Intent(this, EMICalcualtorActivity.class);
             startActivity(ec);
         }
-
     }
+
 }
