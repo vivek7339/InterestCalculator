@@ -3,6 +3,7 @@ package com.example.vivek.interestcalculator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,11 +17,15 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
     private EditText principalAmount, interestRate, termInYears;
     private Button calculate, reset, back;
     private TextView resultSimpleInterest, resultTotalPayment, printError;
+    static  final  String LOG_TAG = "SICActivity";
+    generalfunctions hk = new generalfunctions();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_interest_calculator);
 
+        generalfunctions hk = new generalfunctions();
+        hk.hidekeyboard(this);
         principalAmount = (EditText) findViewById(R.id.PrincipalAmountInput);
         interestRate = (EditText) findViewById(R.id.IntrestRate);
         termInYears = (EditText) findViewById(R.id.TermInYearsForCI);
@@ -34,6 +39,8 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
         calculate.setOnClickListener(this);
         reset.setOnClickListener(this);
         back.setOnClickListener(this);
+
+        Log.v(LOG_TAG,"Activity Created");
     }
 
     @Override
@@ -41,6 +48,7 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
 
         if(v == calculate){
             CalculateInterest();
+
         }
         else if(v == reset){
             reset();
@@ -52,7 +60,11 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
 
     }
 
+
+
     private void reset() {
+        hk.hidekeyboard(this);
+        Log.v(LOG_TAG,"Reset");
         principalAmount.getText().clear();
         interestRate.getText().clear();
         termInYears.getText().clear();
@@ -66,8 +78,11 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
         if(principalAmount.getText().toString().isEmpty() || interestRate.getText().toString().isEmpty() ||  termInYears.getText().toString().isEmpty()){
             reset();
             printError.setText("Enter all Value");
+            hk.hidekeyboard(this);
         }
         else{
+            Log.v(LOG_TAG,"Simple Interest");
+            hk.hidekeyboard(this);
             DecimalFormat df = new DecimalFormat("0.00");
             int amount = Integer.parseInt(principalAmount.getText().toString());
             Float interest  = Float.parseFloat(interestRate.getText().toString());
@@ -81,4 +96,6 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
 
 
     }
+
+
 }

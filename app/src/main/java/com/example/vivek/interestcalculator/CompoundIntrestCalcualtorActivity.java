@@ -4,6 +4,7 @@ package com.example.vivek.interestcalculator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,11 +18,16 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
     private EditText principalAmount, interestRate, termInYears, noInterestPayments;
     private Button calculate, reset, back;
     private TextView resultCompoundInterest, resultAccumlatedAmount, printError;
+    static  final  String LOG_TAG = "CICActivity";
+    generalfunctions hk = new generalfunctions();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compound_intrest_calcualtor);
 
+        generalfunctions hk = new generalfunctions();
+        hk.hidekeyboard(this);
         principalAmount = (EditText) findViewById(R.id.PrincipalAmountForCI);
         interestRate = (EditText) findViewById(R.id.InterestRateForCI);
         termInYears = (EditText) findViewById(R.id.TermInYearsForCI);
@@ -36,6 +42,7 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
         calculate.setOnClickListener(this);
         reset.setOnClickListener(this);
         back.setOnClickListener(this);
+        Log.v(LOG_TAG,"Activity Started");
     }
 
     @Override
@@ -55,6 +62,8 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
     }
 
     private void reset() {
+        Log.v(LOG_TAG,"Reset");
+        hk.hidekeyboard(this);
         principalAmount.getText().clear();
         interestRate.getText().clear();
         termInYears.getText().clear();
@@ -68,8 +77,11 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
         if(principalAmount.getText().toString().isEmpty() || interestRate.getText().toString().isEmpty() ||  termInYears.getText().toString().isEmpty() || noInterestPayments.getText().toString().isEmpty()){
             reset();
             printError.setText("Enter all Value");
+            hk.hidekeyboard(this);
         }
         else{
+            Log.v(LOG_TAG,"CI Calculated");
+            hk.hidekeyboard(this);
             DecimalFormat df = new DecimalFormat("0.00");
             int p = Integer.parseInt(principalAmount.getText().toString());
             Float r  = Float.parseFloat(interestRate.getText().toString())/100;

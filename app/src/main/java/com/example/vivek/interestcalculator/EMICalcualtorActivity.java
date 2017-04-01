@@ -3,6 +3,7 @@ package com.example.vivek.interestcalculator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,11 +17,15 @@ public class EMICalcualtorActivity extends AppCompatActivity implements OnClickL
     private EditText principalAmount, interestRate, termInYears;
     private Button calculate, reset, back;
     private TextView resultEMI, resultTotalInterest, printError;
+    static  final  String LOG_TAG = "EMICActivity";
+    generalfunctions hk = new generalfunctions();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emicalcualtor);
+
+        generalfunctions hk = new generalfunctions();
 
         principalAmount = (EditText) findViewById(R.id.PrincipalAmountEMI);
         interestRate = (EditText) findViewById(R.id.InterestRateEMI);
@@ -35,6 +40,7 @@ public class EMICalcualtorActivity extends AppCompatActivity implements OnClickL
         calculate.setOnClickListener(this);
         reset.setOnClickListener(this);
         back.setOnClickListener(this);
+        Log.v(LOG_TAG,"Activity Started");
     }
 
     @Override
@@ -52,6 +58,8 @@ public class EMICalcualtorActivity extends AppCompatActivity implements OnClickL
     }
 
     private void reset() {
+        Log.v(LOG_TAG,"Reset");
+        hk.hidekeyboard(this);
         principalAmount.getText().clear();
         interestRate.getText().clear();
         termInYears.getText().clear();
@@ -64,8 +72,11 @@ public class EMICalcualtorActivity extends AppCompatActivity implements OnClickL
         if(principalAmount.getText().toString().isEmpty() || interestRate.getText().toString().isEmpty() ||  termInYears.getText().toString().isEmpty()){
             reset();
             printError.setText("Enter all Value");
+            hk.hidekeyboard(this);
         }
         else{
+            Log.v(LOG_TAG,"EMI Calculated");
+            hk.hidekeyboard(this);
             DecimalFormat df = new DecimalFormat("0.00");
             int p = Integer.parseInt(principalAmount.getText().toString());
             int n = 12 * Integer.parseInt(termInYears.getText().toString());

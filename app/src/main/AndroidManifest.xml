@@ -17,15 +17,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        //SimpleInterestCalculatorActivity
         <activity
             android:name=".SimpleInterestCalculatorActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+
+            android:parentActivityName=".MainActivity" />
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+
+        //CompoundInterestCalculatorActivity
         <activity
             android:name=".CompoundIntrestCalcualtorActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity" />
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+
+        //EMICalculatorActivity
         <activity
             android:name=".EMICalcualtorActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity" />
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+
+        //About
+        <activity android:name=".About"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity" />
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+
+        //ContctUs
+        <activity android:name=".ContactUs"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity" >
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+    </activity>
 
     </application>
 
