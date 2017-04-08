@@ -12,14 +12,12 @@
         android:id="@+id/PrincipalAmountInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="sans-serif-condensed"
-        android:hint="Principal Amount"
+        android:hint="@string/PA"
         android:inputType="number|numberSigned"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
@@ -28,21 +26,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
         android:id="@+id/IntrestRate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="sans-serif-condensed"
-        android:hint="Intrest Rate"
+        android:hint="@string/IR"
         android:inputType="numberDecimal"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
@@ -50,8 +45,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/PrincipalAmountInput"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/PrincipalAmountInput" />
 
     <Button
         android:id="@+id/CalculateForCI"
@@ -61,16 +55,13 @@
         android:layout_marginRight="16dp"
         android:elevation="18dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Calculate"
+        android:text="@string/Button_Calculate"
         android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBaseline_toBaselineOf="@+id/ResetForCI"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintRight_toLeftOf="@+id/guideline2" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -89,17 +80,15 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:fontFamily="sans-serif-condensed"
-        android:hint="Term In Year(s)"
+        android:hint="@string/TY"
         android:inputType="numberSigned"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/IntrestRate"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/Back"
@@ -110,17 +99,14 @@
         android:layout_marginRight="16dp"
         android:elevation="18dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Back"
-        android:textSize="18sp"
+        android:text="@string/Button_Back"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/ResetForCI"
@@ -131,41 +117,36 @@
         android:layout_marginTop="8dp"
         android:elevation="18dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Reset"
+        android:text="@string/Button_Reset"
         android:textSize="12sp"
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TermInYearsForCI"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/TermInYearsForCI" />
 
     <TextView
         android:id="@+id/Interest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-condensed"
-        android:text=" Simple Interest:"
+        android:text="@string/SIC_SI"
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/SimpleInterestResult"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/guideline5"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintRight_toLeftOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/SimpleInterestResult"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-condensed"
         android:textAlignment="viewStart"
@@ -175,9 +156,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ResetForCI"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/ResetForCI" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -192,9 +171,9 @@
         android:id="@+id/TotalPayment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Total Payment:"
+        android:text="@string/SIC_TP"
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
@@ -202,16 +181,14 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/TotalPaymentResult"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/guideline5"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintRight_toLeftOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/TotalPaymentResult"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-condensed"
         android:textAlignment="viewStart"
@@ -221,9 +198,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline5"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SimpleInterestResult"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/SimpleInterestResult" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -236,8 +211,8 @@
         android:id="@+id/PrintErrorSI"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@android:color/holo_red_dark"
@@ -246,9 +221,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/Back"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/Back" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/SimpleInterestToolbar"

@@ -1,5 +1,24 @@
 <resources>
     <string name="app_name">Interest Calculator</string>
     <string name="title_activity_test_acticity">TestActicity</string>
+    <string name="Main_SIC">Simple Interest Calculator</string>
+    <string name="Main_CIC">Compound Interest Calculator</string>
+    <string name="Main_EMIC">EMI Calculator</string>
+    <string name="PA">Principal Amount</string>
+    <string name="TY">Term In Year(s)</string>
+    <string name="Button_Calculate">Calculate</string>
+    <string name="Button_Reset">Reset</string>
+    <string name="SIC_SI">Simple Interest:</string>
+    <string name="SIC_TP">Total Payment:</string>
+    <string name="Button_Back" >Back</string>
+    <string name="SIC_Title">Simple Interest Calculator</string>
+    <string name="IR">Interest Rate</string>
+    <string name="IR_Compounded_NoTimes">No of times Interest Compounded Per Year</string>
+    <string name="CIC_TAA">Accumlated Amount:</string>
+    <string name="CIC_CI">Compounded Interest:</string>
+    <string name="CIC_ATTermEnd">(at Term End)</string>
+    <string name="EMIC_EMI">EMI</string>
+    <string name="EMI_TI">Total Interest:</string>
+    <string name="Error_Message">Enter All Value</string>
 
 </resources>

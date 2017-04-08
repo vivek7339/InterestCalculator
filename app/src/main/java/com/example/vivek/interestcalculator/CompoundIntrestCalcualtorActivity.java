@@ -104,7 +104,7 @@ public class CompoundIntrestCalcualtorActivity extends AppCompatActivity impleme
     private void CalculateCompoundInterest() {
         if(principalAmount.getText().toString().isEmpty() || interestRate.getText().toString().isEmpty() ||  termInYears.getText().toString().isEmpty() || noInterestPayments.getText().toString().isEmpty()){
             reset();
-            printError.setText("Enter all Value");
+            printError.setText(R.string.Error_Message);
             hk.hidekeyboard(this);
         }
         else{

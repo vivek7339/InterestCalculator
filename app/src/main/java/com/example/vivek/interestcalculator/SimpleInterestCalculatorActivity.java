@@ -30,7 +30,7 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
         setContentView(R.layout.activity_simple_interest_calculator);
 
         myToolbar = (Toolbar) findViewById(R.id.SimpleInterestToolbar);
-        myToolbar.setTitle("Simple Interest Calculator");
+        myToolbar.setTitle(R.string.SIC_Title);
         myToolbar.setTitleTextColor(Color.WHITE);
         myToolbar.inflateMenu(R.menu.mainmenu);
         myToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -105,7 +105,7 @@ public class SimpleInterestCalculatorActivity extends AppCompatActivity implemen
 
         if(principalAmount.getText().toString().isEmpty() || interestRate.getText().toString().isEmpty() ||  termInYears.getText().toString().isEmpty()){
             reset();
-            printError.setText("Enter all Value");
+            printError.setText(R.string.Error_Message);
             hk.hidekeyboard(this);
         }
         else{
